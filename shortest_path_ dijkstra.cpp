@@ -126,4 +126,5 @@ int main(){
 
     dijkstra(Sofia);
     
+    return 0;
 }
