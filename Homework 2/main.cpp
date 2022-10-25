@@ -17,6 +17,7 @@ class Board{
             this->N = _N;
             for(int i=0;i<N;i++){
                 f_col.push_back(0);
+                board.push_back(0);
             }
             for(int i=0;i<(N-1)+N;i++){
                 f_mdiag.push_back(0);
@@ -38,8 +39,15 @@ class Board{
         }
 
         void setRandomBoard(){
+
+            for(int i=0;i<(N-1)+N;i++){
+                if(i<N) f_col[i]=0;
+                f_mdiag[i]=0;
+                f_sdiag[i]=0;
+            }
+
             for(int i=0;i<N;i++){
-                board.push_back(i);
+                board[i]=i;
                 f_col[i]++;
                 f_mdiag[i+i]++;
                 f_sdiag[N - i - 1 + i]++;
@@ -131,16 +139,16 @@ class Board{
 
 int main(){
     int N;
-    //cin>>N;
-    N=10000;
+    cout<<"Enter number of queens: ";
+    cin>>N;
     srand(time(NULL));
     start = chrono::high_resolution_clock::now();
     Board board(N);
 
     //board.printBoard();
     board.solver();
-    cout<<"++++++++++++++++"<<endl;
-    //board.printBoard();
+    //cout<<"++++++++++++++++"<<endl;
+    board.printBoard();
     stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
     printf("Time to find solution: %.3f seconds.\n", duration.count() * 0.001);
