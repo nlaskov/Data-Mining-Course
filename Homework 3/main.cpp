@@ -1,3 +1,4 @@
+//homework 3
 #include<vector>
 #include<iostream>
 #include <fstream>
@@ -61,7 +62,6 @@ class Backpack{
         return true;
     }
 
-    
 };
 
 bool sorting(const Backpack& lhs, const Backpack& rhs )
@@ -230,14 +230,14 @@ int main(){
         myfile >> x >> y;
         temp.push_back(Element(x, y));
     }
-    int counter1=0,counter2=0,counter3=0,counter4=0,counter5=0;
+    //int counter1=0,counter2=0,counter3=0,counter4=0,counter5=0;
         Population pop(temp, 100, 5000);
-        for(int i=0;i<45000;i++){
+        for(int i=0;i<50000;i++){
             pop.generation();
-            if( i==9 || i==10000 || i==20000 || i==30000 ){
-                cout<<pop.bestValue<<endl;
+            if( i==10 || i==10000 || i==30000 || i==40000 ){
+                cout<<"Generation:"<<i<<" Best:"<<pop.bestValue<<endl;
             }
         }
-        cout<<pop.bestValue<<endl;
+        cout<<"Generation: Last Best:"<<pop.bestValue<<endl;
     
 }

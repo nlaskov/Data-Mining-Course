@@ -17,6 +17,12 @@
         "vector": "cpp",
         "iterator": "cpp",
         "ostream": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "chrono": "cpp",
+        "bitset": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "unordered_set": "cpp",
+        "utility": "cpp"
     }
 }

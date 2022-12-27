@@ -1,3 +1,4 @@
+//homework 4
 #include<iostream>
 using namespace std;
 
@@ -104,11 +105,13 @@ int evaluateBoard(char board[][SIDE], int depth)
         {
             if (board[row][0] == COMPUTERMOVE)
             {
-                return MAXSCORE - depth;
+                return MINSCORE + depth;
+                //return MAXSCORE - depth;
             }
             else if (board[row][0] == HUMANMOVE)
             {
-                return MINSCORE + depth;
+                return MAXSCORE - depth;
+                //return MINSCORE + depth;
             }
         }
     }
@@ -118,11 +121,13 @@ int evaluateBoard(char board[][SIDE], int depth)
         {
             if (board[0][col] == COMPUTERMOVE)
             {
-                return MAXSCORE - depth;
+                return MINSCORE + depth;
+                //return MAXSCORE - depth;
             }
             else if (board[0][col] == HUMANMOVE)
             {
-                return MINSCORE + depth;
+                return MAXSCORE - depth;
+                //return MINSCORE + depth;
             }
         }
     }
@@ -130,22 +135,26 @@ int evaluateBoard(char board[][SIDE], int depth)
     {
         if (board[0][0] == COMPUTERMOVE)
         {
-            return MAXSCORE - depth;
+            //return MAXSCORE - depth;
+            return MINSCORE + depth;
         }
         else if (board[0][0] == HUMANMOVE)
         {
-            return MINSCORE + depth;
+            return MAXSCORE - depth;
+            //return MINSCORE + depth;
         }
     }
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0])
     {
         if (board[0][2] == COMPUTERMOVE)
         {
-            return MAXSCORE - depth;
+            return MINSCORE + depth;
+            //return MAXSCORE - depth;
         }
         else if (board[0][2] == HUMANMOVE)
         {
-            return MINSCORE + depth;
+            //return MINSCORE + depth;
+            return MAXSCORE - depth;
         }
     }
     return 0;
@@ -197,8 +206,6 @@ int minimize(char board[][SIDE],int alpha, int beta,int depth, int movesCounter)
 
 
     int currentScore = evaluateBoard(board,depth);
-    
-    cout<<"Moves:"<<movesCounter<<" DEPTH:"<<depth<<" "<<currentScore<<endl;
     
     //If win or draw now go back
     if(currentScore !=0) return currentScore;
